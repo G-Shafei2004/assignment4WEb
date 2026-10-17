@@ -1,0 +1,108 @@
+:root {
+  --forest: #0F6B5F;
+  --gold: #F2A93B;
+  --ink: #16302B;
+  --paper: #F4F7F5;
+  --mist: #E6EFEC;
+  --white: #FFFFFF;
+  --danger: #B42318;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: 'Montserrat', Arial, sans-serif;
+  line-height: 1.5;
+}
+.task-two-page, .task-three-page { min-height: 100vh; }
+.ticket-card, .registration-card, .reservation-card {
+  width: 100%;
+  max-width: 56rem;
+  overflow: hidden;
+  border: 1px solid #d9e4df;
+  border-radius: 1.25rem;
+  background: var(--white);
+  box-shadow: 0 1rem 2.5rem rgba(22, 48, 43, .10);
+}
+.ticket-header, .registration-header, .reservation-header {
+  padding: 1.25rem 1.5rem;
+  color: var(--white);
+  background: var(--forest);
+}
+.ticket-header h1, .registration-header h1, .reservation-header h1 { font-weight: 700; }
+.ticket-form, .registration-card form, .reservation-card form { background: var(--white); }
+.form-label, legend { color: var(--ink); font-weight: 600; }
+.form-control, .form-select, .input-group-text {
+  min-height: 2.8rem;
+  border-color: #c8d8d2;
+  border-radius: .7rem;
+  color: var(--ink);
+  background-color: var(--white);
+}
+.input-group .input-group-text { border-radius: .7rem 0 0 .7rem; background: var(--mist); }
+.input-group .form-control { border-radius: 0 .7rem .7rem 0; }
+.form-control:focus, .form-select:focus, .form-check-input:focus {
+  border-color: var(--forest);
+  box-shadow: 0 0 0 .2rem rgba(15, 107, 95, .18);
+}
+.form-check-input:checked { border-color: var(--forest); background-color: var(--forest); }
+.trip-switch {
+  padding: .25rem;
+  border-radius: 999px;
+  background: var(--mist);
+}
+.trip-switch .btn {
+  padding: .55rem 1rem;
+  border: 0;
+  border-radius: 999px !important;
+  color: var(--ink);
+  font-weight: 600;
+}
+.trip-switch .btn-check:checked + .btn { color: var(--white); background: var(--forest); }
+.trip-switch .btn-check:focus-visible + .btn { outline: 3px solid var(--gold); outline-offset: 2px; }
+.btn-clear, .btn-find, .btn-primary {
+  min-height: 2.75rem;
+  padding: .65rem 1.3rem;
+  border-radius: .7rem;
+  font-weight: 700;
+}
+.btn-clear { border: 1px solid var(--forest); color: var(--forest); background: var(--white); }
+.btn-clear:hover { color: var(--white); background: var(--forest); }
+.btn-find { border: 1px solid var(--gold); color: var(--ink); background: var(--gold); }
+.btn-find:hover { border-color: #d99420; color: var(--ink); background: #f7b950; }
+.btn-primary { border-color: var(--forest); color: var(--white); background: var(--forest); }
+.btn-primary:hover { border-color: #0b554c; background: #0b554c; }
+.ticket-actions { justify-content: flex-end; }
+.registration-header p, .reservation-header p { letter-spacing: .08em; }
+.invalid-feedback { color: var(--danger); font-size: .875rem; }
+/* The brief asks for errors only after a user has interacted with a field. */
+.form-control:user-invalid ~ .invalid-feedback,
+.form-select:user-invalid ~ .invalid-feedback,
+input:user-invalid ~ .invalid-feedback,
+textarea:user-invalid ~ .invalid-feedback,
+.form-check-input:user-invalid ~ .invalid-feedback,
+fieldset:has(input:user-invalid) > .invalid-feedback { display: block; }
+.form-control:user-invalid, .form-select:user-invalid, input:user-invalid, textarea:user-invalid {
+  border-color: var(--danger);
+}
+fieldset { min-width: 0; }
+fieldset legend { float: none; width: auto; margin-bottom: .5rem; font-size: 1rem; }
+.form-check-label { cursor: pointer; }
+:focus-visible { outline-color: var(--gold); }
+@media (max-width: 575.98px) {
+  .ticket-card, .registration-card, .reservation-card { border-radius: 1rem; }
+  .ticket-header, .registration-header, .reservation-header { padding: 1rem 1.1rem; }
+  .ticket-actions { flex-direction: column-reverse; }
+  .ticket-actions .btn { width: 100%; }
+}
+@media (max-width: 575.98px) {
+  .trip-switch {
+    display: flex !important;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
